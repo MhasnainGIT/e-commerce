@@ -1,0 +1,296 @@
+/* ============================================
+   PRODUCTS GRID
+   ============================================ */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 28px;
+    justify-content: center;
+    margin: 24px 0;
+    padding: 0 16px;
+}
+
+/* ============================================
+   PRODUCT CARD
+   ============================================ */
+.products .card {
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    background: white;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.products .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    border-color: #3b82f6;
+}
+
+.products .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.products .card:hover::before {
+    opacity: 1;
+}
+
+.products .card-img-top {
+    height: 240px;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.products .card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.products .card-img-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.products .card-body {
+    padding: 20px;
+}
+
+.products .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.products .card:hover .card-title {
+    color: #2563eb;
+}
+
+.products .card-text {
+    height: 65px;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+/* Product Price */
+.products .price-tag {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 4px;
+}
+
+.products .price-tag::before {
+    content: '$';
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* Stock Badge */
+.products .stock-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.products .stock-tag.in-stock {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.products .stock-tag.out-of-stock {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+/* Product Actions */
+.products .product-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.products .product-actions .btn {
+    flex: 1;
+    padding: 12px 16px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.products .product-actions .btn-view {
+    background: white;
+    color: #2563eb;
+    border: 2px solid #2563eb;
+}
+
+.products .product-actions .btn-view:hover {
+    background: #2563eb;
+    color: white;
+}
+
+.products .product-actions .btn-buy {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border: none;
+}
+
+.products .product-actions .btn-buy:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+.products .product-actions .btn-buy:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Admin actions */
+.products .product-actions .btn-edit {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    border: none;
+}
+
+.products .product-actions .btn-delete {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    border: none;
+}
+
+/* Checkbox for admin */
+.products .card .position-absolute {
+    z-index: 10;
+    top: 12px;
+    left: 12px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    accent-color: #2563eb;
+}
+
+/* ============================================
+   PRODUCT DETAIL PAGE
+   ============================================ */
+.detail_page {
+    padding: 32px 0;
+}
+
+.detail_page .img-thumbnail {
+    border-radius: 12px;
+    padding: 8px;
+    border: 2px solid #e2e8f0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.detail_page .img-thumbnail:hover {
+    border-color: #3b82f6;
+}
+
+.detail_page .img-thumbnail.active {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    padding: 6px;
+}
+
+.detail_page .detail-image {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.detail_page .detail-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 16px;
+}
+
+.detail_page .detail-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 24px;
+}
+
+.detail_page .detail-price::before {
+    content: '$';
+    font-size: 1.5rem;
+    opacity: 0.8;
+}
+
+.detail_page .detail-description {
+    color: #475569;
+    line-height: 1.8;
+    font-size: 1rem;
+    margin-bottom: 24px;
+}
+
+.detail_page .detail-stock {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #f1f5f9;
+    border-radius: 8px;
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+
+.detail_page .detail-stock .in-stock {
+    color: #10b981;
+}
+
+.detail_page .detail-stock .out-of-stock {
+    color: #ef4444;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .products {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 16px;
+        margin: 16px 0;
+    }
+    
+    .products .card-img-top {
+        height: 200px;
+    }
+    
+    .products .card-body {
+        padding: 16px;
+    }
+    
+    .products .price-tag {
+        font-size: 1.25rem;
+    }
+}
