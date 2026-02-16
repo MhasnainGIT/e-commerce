@@ -1,4 +1,7 @@
 {
+  "buildCommand": "NODE_OPTIONS=--openssl-legacy-provider npm run build",
+  "installCommand": "npm install",
+  "framework": "nextjs",
   "build": {
     "env": {
       "NODE_OPTIONS": "--openssl-legacy-provider"
